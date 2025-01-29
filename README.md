@@ -1,9 +1,10 @@
 ### How to Use Flight Booker
-1. Build the Project
+- Build the Project
+
 ```
 mvn clean install
 ```
-2.Use run.sh to execute the application:
+- Use run.sh to execute the application
 ```
 # Example: ./run.sh BOOK A1 2
 ./run.sh <ACTION> <SEAT_POSITION> <CONSECUTIVE_SEATS>
@@ -110,5 +111,5 @@ reducing I/O overhead.
 
 ### Additional Features
 - Seat Classes (first-class, economy, etc.).
-- Cost calculation and dynamic Pricing (e.g. discount) based on demand and seat
+- Cost calculation and dynamic pricing (e.g. discount) based on demand and seat
 location.  
