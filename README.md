@@ -108,7 +108,9 @@ scenarios despite potential retry overhead.
 ### Code Enhancements
 - Dependency Injection: Using a framework like Spring would improve modularity, and
 configuration management.
-- Use tools like Lombok to reduce boilerplate code in `Command` builder pattern.
+- Use tools like Lombok to reduce boilerplate code in `Command` builder pattern.- Better error Handling & Logging 
+  - Integrate structured logging (e.g., Log4j) to track issues effectively.
+  - Implement exception hierarchy.
 
 ### Undo/redo Support
 Implement command history to allow users to revert or redo reservations.
