@@ -28,9 +28,7 @@ public class ReservationManager extends AbstractReservationManager {
      */
     public boolean execute(Command command) {
         synchronized (this) { // Ensures thread safety when processing commands
-            boolean succeed = command.getAction().execute(this, command);
-            System.out.println(succeed ? "SUCCESS" : "FAIL");
-            return succeed;
+            return command.getAction().execute(this, command);
         }
     }
 }

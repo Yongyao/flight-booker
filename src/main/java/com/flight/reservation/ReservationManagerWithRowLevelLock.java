@@ -35,9 +35,7 @@ public class ReservationManagerWithRowLevelLock extends AbstractReservationManag
     public boolean execute(Command command) {
         // Locking the row-specific lock to ensure only one thread can modify the row's seats at a time
         synchronized (rowLocks[command.getRowNumber()]) {
-            boolean succeed = command.getAction().execute(this, command);
-            System.out.println(succeed ? "SUCCESS" : "FAIL");
-            return succeed;
+            return command.getAction().execute(this, command);
         }
     }
 }
