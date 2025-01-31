@@ -37,6 +37,37 @@ public abstract class AbstractReservationManager {
         return true;
     }
 
+    boolean newReserveSeats(int row, int targetIndex, int totalSeats) {
+        System.out.println("newReserveSeats...");
+
+        if (getAvailableSeats(row, targetIndex) < totalSeats) {
+            System.out.println("Not enough available seats");
+            return false;
+        }
+
+
+        for (int i = targetIndex; i >= 0 && totalSeats > 0; i--) {
+            Seat seat = flightSeats.getSeat(row, i);
+            System.out.println("totalSeats is " + totalSeats + " at index " + i);
+
+            if (!seat.isReserved()) {
+                seat.reserve();
+                totalSeats--;
+            }
+        }
+
+        if (totalSeats > 0) {
+            for (int i = targetIndex + 1; i < flightSeats.getColLength() && totalSeats > 0; i++) {
+                Seat seat = flightSeats.getSeat(row, i);
+                if (!seat.isReserved()) {
+                    seat.reserve();
+                    totalSeats--;
+                }
+            }
+        }
+        return true;
+    }
+
     boolean cancelSeats(int row, int startCol, int endCol) {
         if (!areSeatsReserved(row, startCol, endCol)) return false;
 
@@ -50,6 +81,26 @@ public abstract class AbstractReservationManager {
         return IntStream.rangeClosed(startCol, endCol)
                 .mapToObj(col -> flightSeats.getSeat(row, col))
                 .noneMatch(Seat::isReserved);
+    }
+
+    private int getAvailableSeats(int row, int targetIndex) {
+        // start from `targetIndex` and expand in both ways (left first)
+        int leftCount = 0;
+        for (int i = targetIndex; i >= 0; i--) {
+            Seat seat = flightSeats.getSeat(row, i);
+            if (!seat.isReserved()) {
+                leftCount++;
+            }
+        }
+
+        int rightCount = 0;
+        for (int i = targetIndex + 1; i < flightSeats.getColLength(); i++) {
+            Seat seat = flightSeats.getSeat(row, i);
+            if (!seat.isReserved()) {
+                rightCount++;
+            }
+        }
+        return leftCount + rightCount;
     }
 
     private boolean areSeatsReserved(int row, int startCol, int endCol) {

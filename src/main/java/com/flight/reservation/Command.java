@@ -131,7 +131,7 @@ public class Command {
          * @throws IllegalArgumentException If any of inputs are invalid.
          */
         public Command build() {
-            validate();
+            // validate();
             return new Command(this);
         }
 

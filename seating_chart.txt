@@ -1,9 +1,9 @@
-R,R,R,E,E,E,E,E
+R,E,E,E,E,E,E,E
 E,E,E,E,E,E,E,E
-E,R,R,R,R,R,R,R
-E,R,E,E,E,E,E,E
-E,R,R,E,E,E,E,E
-R,R,E,E,E,E,E,E
+R,R,R,R,R,R,R,E
+R,R,R,R,R,R,R,E
+E,E,E,R,R,R,R,E
+E,E,E,E,E,E,E,E
 E,E,E,E,E,E,E,E
 E,E,E,E,E,E,E,E
 E,E,E,E,E,E,E,E

@@ -9,12 +9,20 @@ public enum Action implements ActionInterface {
     BOOK {
         @Override
         public boolean execute(AbstractReservationManager manager, Command command) {
-            return manager.reserveSeats(
+            System.out.print("executing...");
+            return manager.newReserveSeats(
                     command.getRowNumber(),
                     command.getColumnNumber(),
-                    command.getColumnNumber() + command.getConsecutiveSeats() - 1
+                    command.getConsecutiveSeats()
             );
         }
+//        public boolean execute(AbstractReservationManager manager, Command command) {
+//            return manager.reserveSeats(
+//                    command.getRowNumber(),
+//                    command.getColumnNumber(),
+//                    command.getColumnNumber() + command.getConsecutiveSeats() - 1
+//            );
+//        }
     },
 
     CANCEL {
