@@ -51,11 +51,12 @@ public class FlightSeats {
             }
         }
 
-        // Copy the input seats array
+        // Deep copy the input seats array
         seats = new Seat[rows][cols];
         for (int i = 0; i < rows; i++) {
-            // Copy Seat objects from the input array (deep copy if necessary)
-            System.arraycopy(inputSeats[i], 0, seats[i], 0, cols);
+            for (int j = 0; j < cols; j++) {
+                seats[i][j] = new Seat(inputSeats[i][j]); // Create a new Seat instance
+            }
         }
     }
 

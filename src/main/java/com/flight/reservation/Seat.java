@@ -11,6 +11,11 @@ public class Seat {
         this.reserved = false; // The seat is available by default
     }
 
+    // Copy constructor
+    public Seat(Seat other) {
+        this.reserved = other.reserved;
+    }
+
     /**
      * Checks if the seat is reserved.
      * @return True if the seat is reserved, false otherwise.

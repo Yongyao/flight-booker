@@ -28,6 +28,7 @@ parameters (e.g. action, row index, etc.).
 
 ### Seat
 - Contains the state of a seat (i.e. whether it's reserved).
+- Easy to extend to add other states or attributes
 
 ### FlightSeats
 - Represents a 2D array of `Seat` objects.

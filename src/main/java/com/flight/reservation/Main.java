@@ -31,6 +31,9 @@ public class Main {
             // Save the updated seating arrangement
             fileManager.saveToFile(flightSeats, SEATING_FILE);
         } catch (RuntimeException e) {
+            // The question specifically asks to only print out "FAIL".
+            // In production code, we should treat each exception type differently and
+            // create custom exception if necessary.
             System.out.println("FAIL");
         }
     }
